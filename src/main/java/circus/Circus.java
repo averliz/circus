@@ -1,3 +1,5 @@
+package circus;
+
 public class Circus {
     private static Animal[] animals = {
             new Duck(),
@@ -16,19 +18,19 @@ public class Circus {
         }
     }
 
-    private static int calculateValue(Equipment[] equipments) {
+    private static int calculateValue(Asset[] assets) {
         int total = 0;
-        for (Equipment e : equipments) {
-            if (e.getValue() <= 5) {
-                System.out.println("Ignoring low value item: " + e.getValue());
-            } else {
-                total += e.getValue();
-                System.out.println("Adding item value: " + e.getValue());
-                // some 
-                // more
-                // code 
-                // here ...
+        for (Asset asset : assets) {
+            // note try not to use a arrowhead coding style
+            if (asset.getValue() <= 5) {
+                System.out.println("Ignoring low value item: " + asset.getValue());
+                continue;
             }
+            // use ctrl alt L to reformat code - reformat spaces
+            // use ctrl alt shift L to reformat entire project
+            total += asset.getValue();
+            System.out.println("Adding item value: " + asset.getValue());
+
         }
         return total;
     }
@@ -36,5 +38,6 @@ public class Circus {
     public static void main(String[] args) {
         makeAnimalsTalk();
         System.out.println("Total value of equipments " + calculateValue(equipments));
+        System.out.println("Total value of animals " + calculateValue(animals));
     }
 }
